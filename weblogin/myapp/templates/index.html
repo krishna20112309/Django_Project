@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        Hello {{request.user.username}}...!
+    </h2>
+    Click <a href="{% url 'logout' %}">here</a> for logout
+   <form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit" />
+   </form>
+   <hr>
+   {% for i in data %}
+   <b>created by {{i.user}}</b>
+   Post is created on {{i.created_on}}<br>
+   <b>Title:</b> {{i.title|title}}<br>
+   <b>Content:</b> {{i.content|truncatechars:30}}<br>
+   <a href="{% url 'detail' i.id %}">Read more</a>
+   <hr style="width: 50%;">
+   {% endfor %}
+</body>
+</html>
