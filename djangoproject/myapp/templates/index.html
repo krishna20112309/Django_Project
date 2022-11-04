@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Project</title>
+</head>
+<body>
+    <h1>My First page --! </h1>
+    
+    {% if d %}
+    {% for k in d %}
+    <p>Name:{{k.name}}</p>
+    <p>Address:{{k.address}}</p>
+    <p>Salary:{{k.salary}}</p>
+    <hr>
+    {% endfor%}
+    {% endif %}
+   
+    <a href="{% url 'sec' %}">Click here for second page</a>
+</body>
+</html>
