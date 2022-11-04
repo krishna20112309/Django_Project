@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Project</title>
+</head>
+<body>
+    <h1>Fetch All Data---!</h1>
+    
+    {% if d %}
+    {% for k in d %}
+    <p>ID:{{k.id}}</p>
+    <p>Title:{{k.title}}</p>
+    <p>Text:{{k.text}}</p>
+    <p>Author:{{k.author}}</p>
+    <p>date:{{k.date}}</p>
+    <p><img src="{{k.image.url}}"  ></p>
+    <a href="{% url 'delete' k.id %}">Delete Record</a>
+    <hr>
+    {% endfor %}
+    {% endif %}
+   <br>
+   
+    {% if s %}
+    <h2> Fetch Single record</h2>
+    Title:{{s.title}}<br>
+    Text:{{s.text}}
+    {% endif %}
+    <br>
+    <a href="{% url 'form1' %}">Click here to create data</a>
+    
+</body>
+</html>
