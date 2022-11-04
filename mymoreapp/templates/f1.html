@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Students Details !!</h1>
+   
+    {% for k in data %}
+    {% if k.image %}
+    
+    <img src="{{k.image.url}}" width="100px" height="100px">
+    {% endif %}
+    <p>Id:{{k.id}}</p>
+    <p>Name:{{k.name}}</p>
+    <p>course:{{k.course}}</p>
+    <p>Email:{{k.email}}</p>
+    
+    <a href="{% url 'app1:delete' k.id %}">Delete record</a>
+    <br>
+    <a href="{% url 'app1:edit' k.id %}">Edit record</a>
+    <hr>
+    {% endfor %}
+    
+    <br>
+    
+    
+    <a href="{% url 'app2:second_page' %}">Click here Add record</a>
+</body>
+</html>
